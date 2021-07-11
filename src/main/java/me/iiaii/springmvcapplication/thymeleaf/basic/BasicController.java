@@ -100,13 +100,10 @@ public class BasicController {
         return "basic/condition";
     }
 
-    private void addUsers(Model model) {
-        List<User> users = new ArrayList<>();
-        users.add(new User("UserA", 10));
-        users.add(new User("UserB", 20));
-        users.add(new User("UserC", 30));
-
-        model.addAttribute("users", users);
+    @GetMapping("/comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "Spring!");
+        return "basic/comments";
     }
 
     @Component("helloBean")
@@ -127,4 +124,12 @@ public class BasicController {
         }
     }
 
+    private void addUsers(Model model) {
+        List<User> users = new ArrayList<>();
+        users.add(new User("UserA", 10));
+        users.add(new User("UserB", 20));
+        users.add(new User("UserC", 30));
+
+        model.addAttribute("users", users);
+    }
 }
