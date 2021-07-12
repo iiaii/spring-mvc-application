@@ -112,6 +112,13 @@ public class BasicController {
         return "basic/block";
     }
 
+    @GetMapping("/javascirpt")
+    public String javascript(Model model) {
+        model.addAttribute("user", new User("UserA", 10));
+        addUsers(model);
+        return "basic/javascript";
+    }
+
     @Component("helloBean")
     static class HelloBean {
         public String hello(String data) {
